@@ -7,5 +7,5 @@ export const user:User={
   cover: '/emo.jpg',
   bio: 'Desenvolvedor front-end.',
   link: 'https://meusite.com',
-  postCount: 45
+  postCount: "45"
 }
