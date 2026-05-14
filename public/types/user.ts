@@ -1,15 +1,13 @@
 export type User = {
+  name: string;
 
-    name: string;
+  avatar: string;
 
-    avatar: string;
+  cover: string;
 
-    cover: string;
+  bio: string;
 
-    bio: string;
+  link: string;
 
-    link: string;
-
-    postCount: string;
-
-}
+  postCount: string;
+};
