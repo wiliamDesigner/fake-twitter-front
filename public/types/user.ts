@@ -1,6 +1,15 @@
-export  type User={
-    [x: string]: string;
-    name: ReactNode;
-    avatar: ReactNode;
-    
+export type User = {
+
+    name: string;
+
+    avatar: string;
+
+    cover: string;
+
+    bio: string;
+
+    link: string;
+
+    postCount: string;
+
 }
