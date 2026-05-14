@@ -1,4 +1,7 @@
 export type User = {
+
+  slug: string;
+
   name: string;
 
   avatar: string;
@@ -10,4 +13,5 @@ export type User = {
   link: string;
 
   postCount: string;
-};
+
+}
