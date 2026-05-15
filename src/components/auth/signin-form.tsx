@@ -94,26 +94,24 @@ export const SignInForm = () => {
 
     <div className="flex flex-col gap-4">
 
-      {/* USERNAME */}
-      <Input
-        type="text"
-        placeholder="Digite seu usuário"
-        value={usernameField}
-        onChange={(t) =>
-          setUsernameField(t)
-        }
-      />
+        {/* USERNAME */}
+    <Input
+      placeholder="Digite seu usuário"
+      value={usernameField}
+      onChange={(t) =>
+        setUsernameField(t)
+      }
+    />
 
-      {/* PASSWORD */}
-      <Input
-        type="password"
-        placeholder="Digite sua senha"
-        value={passwordField}
-        onChange={(t) =>
-          setPasswordField(t)
-        }
-      />
-
+          {/* PASSWORD */}
+    <Input
+      isPassword
+      placeholder="Digite sua senha"
+      value={passwordField}
+      onChange={(t) =>
+        setPasswordField(t)
+      }
+    />
       {/* BOTÃO */}
       <Button
         label="Entrar"
