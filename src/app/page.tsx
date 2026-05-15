@@ -1,21 +1,7 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { HomeHeader } from "../components/home/home-header";
-import { TweetPost } from "@/app/(ui)/tweet/tweet-post";
-import { HomeFeed } from "@/components/home/home-feed";
+export default function Page() {
 
-export default function Home() {
-  const router = useRouter();
+  redirect("/signup");
 
-  
-
-  return (
-    <div className="flex flex-col h-full">
-      <HomeHeader />
-      <TweetPost />
-      <HomeFeed />
-    </div>
-  );
 }
