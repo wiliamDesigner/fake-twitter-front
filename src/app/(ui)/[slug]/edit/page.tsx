@@ -62,7 +62,7 @@ export default function Page() {
 
       // ENVIA PRO BACKEND
       const response = await fetch(
-        "http://127.0.0.1:8000/api/users/update/",
+        "https://fake-twitter-back.onrender.com/api/users/${u.id}/stats/",
         {
           method: "POST",
 

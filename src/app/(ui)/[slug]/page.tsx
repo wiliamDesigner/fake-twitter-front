@@ -27,7 +27,7 @@ export default function Page() {
 
       // BUSCA STATS REAIS
       fetch(
-        `http://127.0.0.1:8000/api/users/${u.id}/stats/`
+        `https://fake-twitter-back.onrender.com/api/users/${u.id}/stats/`
       )
         .then((res) => res.json())
         .then((data) => {

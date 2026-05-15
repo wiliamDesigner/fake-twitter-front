@@ -23,7 +23,7 @@ export const HomeFeed = () => {
 
         // BUSCA FEED
         const res = await fetch(
-          `http://127.0.0.1:8000/api/feed/?user_id=${userId}`
+          `https://fake-twitter-back.onrender.com/api/feed/?user_id=${userId}`
         );
 
         const data = await res.json();

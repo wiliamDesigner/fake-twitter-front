@@ -15,7 +15,7 @@ export default function Page() {
     try {
 
       const res = await fetch(
-        "http://127.0.0.1:8000/api/reset-password/",
+        "https://fake-twitter-back.onrender.com/api/reset-password/",
         {
           method: "POST",
 
@@ -148,16 +148,16 @@ export default function Page() {
           }
           className="
             h-12
-                        rounded-3xl
-                        border-2
-                        border-gray-700
-                        text-white
-                        font-bold
-                        flex
-                        items-center
-                        justify-center
-                        hover:bg-gray-800
-                        transition
+            rounded-3xl
+            border-2
+            border-gray-700
+            text-white
+            font-bold
+            flex
+            items-center
+            justify-center
+            hover:bg-gray-800
+            transition
           "
         >
 

@@ -38,7 +38,7 @@ export const TweetItem = ({ tweet }: any) => {
     try {
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/tweets/${tweet.id}/comments/`
+        `https://fake-twitter-back.onrender.com/api/tweets/${tweet.id}/comments/`
       );
 
       const data = await response.json();
@@ -63,7 +63,7 @@ export const TweetItem = ({ tweet }: any) => {
       );
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/tweets/${tweet.id}/like/`,
+        `https://fake-twitter-back.onrender.com/api/tweets/${tweet.id}/like/`,
         {
           method: "POST",
 
@@ -103,7 +103,7 @@ export const TweetItem = ({ tweet }: any) => {
       );
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/tweets/${tweet.id}/comments/`,
+        `https://fake-twitter-back.onrender.com/api/tweets/${tweet.id}/comments/`,
         {
           method: "POST",
 
@@ -176,7 +176,7 @@ export const TweetItem = ({ tweet }: any) => {
           <div className="mt-3 overflow-hidden rounded-2xl border border-gray-800 bg-black">
 
             <img
-              src={`http://127.0.0.1:8000${tweet.image}`}
+              src={`https://fake-twitter-back.onrender.com${tweet.image}`}
               alt=""
               className="
                 w-full

@@ -9,6 +9,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
 export const SignUpForm = () => {
+
   const router = useRouter();
 
   const [nameField, setNameField] = useState("");
@@ -18,27 +19,34 @@ export const SignUpForm = () => {
   const [passwordField, setPasswordField] = useState("");
 
   const handleEnterButton = async () => {
+
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/users/create/", {
-        method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const res = await fetch(
+        "https://fake-twitter-back.onrender.com/api/users/create/",
+        {
+          method: "POST",
 
-        body: JSON.stringify({
-          username: nameField,
-          email: emailField,
-          password: passwordField,
-        }),
-      });
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            username: nameField,
+            email: emailField,
+            password: passwordField,
+          }),
+        }
+      );
 
       const data = await res.json();
 
       if (!res.ok) {
+
         alert(data.error);
 
         return;
+
       }
 
       // SALVA NOVO USUÁRIO
@@ -55,32 +63,42 @@ export const SignUpForm = () => {
 
           avatar: "",
           cover: "",
-        }),
+        })
       );
 
       // ENTRA DIRETO
       router.replace("/home");
+
     } catch (err) {
+
       console.error(err);
 
       alert("Erro ao criar conta");
+
     }
+
   };
 
   return (
+
     <div className="flex flex-col gap-4">
+
       {/* NOME */}
       <Input
         placeholder="Digite seu nome"
         value={nameField}
-        onChange={(t) => setNameField(t)}
+        onChange={(t) =>
+          setNameField(t)
+        }
       />
 
       {/* EMAIL */}
       <Input
         placeholder="Digite seu e-mail"
         value={emailField}
-        onChange={(t) => setEmailField(t)}
+        onChange={(t) =>
+          setEmailField(t)
+        }
       />
 
       {/* SENHA */}
@@ -88,11 +106,20 @@ export const SignUpForm = () => {
         isPassword
         placeholder="Digite sua senha"
         value={passwordField}
-        onChange={(t) => setPasswordField(t)}
+        onChange={(t) =>
+          setPasswordField(t)
+        }
       />
 
       {/* BOTÃO */}
-      <Button label="Criar conta" onClick={handleEnterButton} size={1} />
+      <Button
+        label="Criar conta"
+        onClick={handleEnterButton}
+        size={1}
+      />
+
     </div>
+
   );
+
 };

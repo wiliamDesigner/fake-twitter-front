@@ -32,7 +32,7 @@ export const SearchInput = ({
     try {
 
       const res = await fetch(
-        `http://127.0.0.1:8000/api/users/${value}/`
+        `https://fake-twitter-back.onrender.com/api/users/${value}/`
       );
 
       if (res.status === 404) {

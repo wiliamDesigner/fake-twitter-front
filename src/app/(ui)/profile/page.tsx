@@ -34,7 +34,7 @@ export default function Page() {
 
       // BUSCA STATS
       fetch(
-        `http://127.0.0.1:8000/api/users/${u.id}/stats/`
+        `https://fake-twitter-back.onrender.com/api/users/${u.id}/stats/`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -57,7 +57,7 @@ export default function Page() {
     try {
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/users/${userId}/following/`
+        `https://fake-twitter-back.onrender.com/api/users/${userId}/following/`
       );
 
       const data = await response.json();
@@ -80,7 +80,7 @@ export default function Page() {
     try {
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/users/${userId}/followers/`
+        `https://fake-twitter-back.onrender.com/api/users/${userId}/followers/`
       );
 
       const data = await response.json();
@@ -336,7 +336,7 @@ export default function Page() {
               <img
                 src={
                   item.avatar
-                    ? `http://127.0.0.1:8000${item.avatar}`
+                    ? `https://fake-twitter-back.onrender.com${item.avatar}`
                     : "/emo.jpg"
                 }
                 alt=""
@@ -400,7 +400,7 @@ export default function Page() {
               <img
                 src={
                   item.avatar
-                    ? `http://127.0.0.1:8000${item.avatar}`
+                    ? `https://fake-twitter-back.onrender.com${item.avatar}`
                     : "/emo.jpg"
                 }
                 alt=""

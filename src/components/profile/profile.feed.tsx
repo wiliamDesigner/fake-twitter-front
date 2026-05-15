@@ -19,7 +19,7 @@ export const ProfileFeed = () => {
         );
 
         const response = await fetch(
-          `http://127.0.0.1:8000/api/feed/?user_id=${currentUser.id}`
+          `https://fake-twitter-back.onrender.com/api/feed/?user_id=${currentUser.id}`
         );
 
         const data = await response.json();

@@ -1,6 +1,7 @@
 "use client";
 
 import { faImage } from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useRef, useEffect, useState } from "react";
@@ -30,6 +31,7 @@ export const TweetPost = () => {
     if (!el) return;
 
     el.style.height = "auto";
+
     el.style.height = el.scrollHeight + "px";
 
   };
@@ -49,6 +51,7 @@ export const TweetPost = () => {
     if (!content && !image) {
 
       alert("Escreve algo ou escolha uma imagem 😅");
+
       return;
 
     }
@@ -56,6 +59,7 @@ export const TweetPost = () => {
     if (!user_id) {
 
       alert("Você precisa estar logado");
+
       return;
 
     }
@@ -65,6 +69,7 @@ export const TweetPost = () => {
       const formData = new FormData();
 
       formData.append("user_id", user_id);
+
       formData.append("content", content || "");
 
       if (image) {
@@ -74,7 +79,7 @@ export const TweetPost = () => {
       }
 
       const res = await fetch(
-        "http://127.0.0.1:8000/api/tweets/create/",
+        "https://fake-twitter-back.onrender.com/api/tweets/create/",
         {
           method: "POST",
           body: formData,

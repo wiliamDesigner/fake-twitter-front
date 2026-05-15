@@ -10,7 +10,7 @@ export const RecommendationArea = () => {
 
     const loadUsers = async () => {
 
-      // 🔥 USER LOGADO
+      // USER LOGADO
       const currentUser = JSON.parse(
         localStorage.getItem("user_data") || "{}"
       );
@@ -19,14 +19,14 @@ export const RecommendationArea = () => {
 
       // TODOS USUÁRIOS
       const usersRes = await fetch(
-        "http://127.0.0.1:8000/api/users/"
+        "https://fake-twitter-back.onrender.com/api/users/"
       );
 
       const usersData = await usersRes.json();
 
       // QUEM EU SIGO
       const followingRes = await fetch(
-        `http://127.0.0.1:8000/api/following/?user_id=${currentUserId}`
+        `https://fake-twitter-back.onrender.com/api/following/?user_id=${currentUserId}`
       );
 
       const followingData = await followingRes.json();
@@ -55,7 +55,7 @@ export const RecommendationArea = () => {
   // FOLLOW
   const handleFollow = async (id: number) => {
 
-    // 🔥 USER LOGADO
+    // USER LOGADO
     const currentUser = JSON.parse(
       localStorage.getItem("user_data") || "{}"
     );
@@ -65,7 +65,7 @@ export const RecommendationArea = () => {
     try {
 
       await fetch(
-        `http://127.0.0.1:8000/api/follow/${id}/`,
+        `https://fake-twitter-back.onrender.com/api/follow/${id}/`,
         {
           method: "POST",
 
@@ -95,6 +95,7 @@ export const RecommendationArea = () => {
   };
 
   return (
+
     <div className="bg-gray-700 rounded-3xl">
 
       <h2 className="text-xl p-6">
@@ -136,6 +137,7 @@ export const RecommendationArea = () => {
       </div>
 
     </div>
+
   );
 
 };
