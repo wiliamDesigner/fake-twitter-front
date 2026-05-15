@@ -1,44 +1,80 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 
-export const SearchInput = () => {
+type Props = {
+
+  hideOnSearch?: boolean;
+
+};
+
+export const SearchInput = ({
+  hideOnSearch
+}: Props) => {
+
   const [value, setValue] = useState("");
+
   const router = useRouter();
 
-  const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleSearch = async (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+
     if (e.key !== "Enter") return;
 
     if (!value.trim()) return;
 
     try {
+
       const res = await fetch(
         `http://127.0.0.1:8000/api/users/${value}/`
       );
 
       if (res.status === 404) {
+
         alert("❌ Este usuário não existe");
+
         return;
+
       }
 
-    
       router.push(`/${value}`);
 
     } catch (err) {
+
       console.error(err);
+
       alert("Erro ao buscar usuário");
+
     }
+
   };
 
   return (
+
     <input
       type="text"
       placeholder="Buscar"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={(e) =>
+        setValue(e.target.value)
+      }
       onKeyDown={handleSearch}
-      className="flex-1 outline-none bg-transparent text-white w-full px-4 py-2 rounded-full bg-gray-700"
+      className="
+        flex-1
+        outline-none
+        bg-transparent
+        text-white
+        w-full
+        px-4
+        py-2
+        rounded-full
+        bg-gray-700
+      "
     />
+
   );
+
 };
