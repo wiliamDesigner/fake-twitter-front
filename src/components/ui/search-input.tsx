@@ -8,13 +8,16 @@ type Props = {
 
   hideOnSearch?: boolean;
 
+  defaultValue?: string;
+
 };
 
 export const SearchInput = ({
-  hideOnSearch
+  hideOnSearch,
+  defaultValue = ""
 }: Props) => {
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(defaultValue);
 
   const router = useRouter();
 
