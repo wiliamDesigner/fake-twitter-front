@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fake Twiter
 
-## Getting Started
+Fake Twiter e uma aplicacao web inspirada no Twitter/X, criada com Next.js, React, TypeScript e Tailwind CSS. O projeto permite criar conta, fazer login, publicar tweets com texto e imagem, curtir, comentar, visualizar feed, acessar perfil, editar dados basicos e resetar senha.
 
-First, run the development server:
+## Tecnologias
+
+- Next.js 16.2.3 com App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Font Awesome
+- API externa: `https://fake-twitter-back.onrender.com`
+
+## Funcionalidades
+
+- Cadastro de usuario
+- Login com usuario e senha
+- Recuperacao/reset de senha
+- Feed de tweets do usuario logado
+- Criacao de tweets com texto e imagem
+- Curtidas e comentarios em tweets
+- Perfil do usuario com avatar, capa, bio, link e estatisticas
+- Edicao local de perfil
+- Listagem de seguidores e usuarios seguidos
+- Busca com tela dedicada
+- Layout responsivo com menu lateral, area central e coluna de sugestoes
+
+## Como Rodar
+
+Instale as dependencias:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Depois acesse:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A rota inicial redireciona para `/signin`.
 
-## Learn More
+## Scripts Disponiveis
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Executa o projeto em modo de desenvolvimento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Gera a versao de producao.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Executa a versao de producao depois do build.
+
+## Estrutura do Projeto
+
+```text
+src/
+  app/
+    (auth)/
+      signin/
+      signup/
+    (ui)/
+      home/
+      profile/
+      search/
+      tweet/
+      [slug]/
+    reset/
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    auth/
+    home/
+    nav/
+    profile/
+    ui/
+  utils/
+public/
+  data/
+  types/
+  logo.png
+  emo.jpg
+```
+
+## Rotas Principais
+
+- `/signin`: tela de login
+- `/signup`: tela de cadastro
+- `/reset`: redefinicao de senha
+- `/home`: feed principal
+- `/profile`: perfil do usuario logado
+- `/[slug]`: pagina de perfil por slug
+- `/[slug]/edit`: edicao de perfil
+- `/tweet/[id]`: pagina de tweet
+- `/search?q=...`: tela de busca
+
+## Dados e API
+
+O projeto salva os dados do usuario logado no `localStorage`, usando a chave `user_data`. Algumas informacoes de apoio tambem existem em `public/data`, mas as principais acoes de usuario usam a API externa:
+
+- login
+- cadastro
+- reset de senha
+- criacao de tweets
+- feed
+- curtidas
+- comentarios
+- estatisticas de perfil
+- seguidores e seguindo
+
+Por depender de uma API hospedada fora do projeto, algumas telas podem nao funcionar corretamente se o backend estiver indisponivel.
+
+## Observacoes
+
+- O nome do projeto no `package.json` esta como `fake_twiter`.
+- A interface esta em portugues e usa tema escuro.
+- Algumas partes ainda parecem estar em desenvolvimento, como a busca com dados fixos e uma pagina de edicao de tweet/perfil com logica incompleta.
